@@ -1,10 +1,3 @@
-/**
- * DON'T EDIT THIS FILE.
- *
- * Platform: dev
- *
- */
-
 struct Conf {
 	static let brand = "Paperclip"
 	static let version = "1.0"

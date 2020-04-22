@@ -1,0 +1,38 @@
+
+import UIKit
+
+protocol TimelineRoutingLogic {
+    func routeToDetails(row: Int) 
+}
+
+protocol TimelineDataPassing {
+    var dataStore: TimeLineDataStore? { get }
+}
+
+class TimelineRouter: NSObject, TimelineRoutingLogic, TimelineDataPassing {
+    
+    var viewController: TimelineViewController?
+    var dataStore: TimeLineDataStore?
+    
+    func routeToDetails(row: Int) {
+        
+        let destinationVC = DetailsViewController()
+        var destinationDS = destinationVC.router?.dataStore
+        passDataToDetails(source: dataStore!, destination: &(destinationDS!), selectedRow: row)
+        navigateToDetails(source: viewController!, destination: destinationVC)
+        
+    }
+    
+    // MARK: Passing data
+    
+    func passDataToDetails(source: TimeLineDataStore, destination: inout DetailsDataStore, selectedRow: Int) {
+        destination.product = source.products?[selectedRow]
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToDetails(source: TimelineViewController, destination: DetailsViewController) {
+        
+        source.navigationController?.pushViewController(destination, animated: true)
+    }
+}

@@ -147,37 +147,26 @@ class ServerService: Service {
                         httpResponse.statusCode == 206 {
                         if let data = data, data.isEmpty == false {
                             do {
-                                if let dataString = String(data: data, encoding: .utf8) {
-                                    os_log("data loaded: %{PRIVATE}@",
-                                           log: Log.network,
-                                           type: .debug,
-                                           dataString)
-                                }
-                            
+//                                if let dataString = String(data: data, encoding: .utf8) {
+//                                    os_log("data loaded: %{PRIVATE}@",
+//                                           log: Log.network,
+//                                           type: .debug,
+//                                           dataString)
+//                                }
+                                
                                 do {
                                     let dataDecoded = try JSONDecoder().decode(type, from: data)
                                     DispatchQueue.main.async {
                                         completion(dataDecoded, error)
                                         return
                                     }
-                                } catch DecodingError.dataCorrupted(let context) {
-                                    print(context.debugDescription)
-                                } catch DecodingError.keyNotFound(let key, let context) {
-                                    print("Key '\(key)' not Found")
-                                    print("Debug Description:", context.debugDescription)
-                                } catch DecodingError.valueNotFound(let value, let context) {
-                                    print("Value '\(value)' not Found")
-                                    print("Debug Description:", context.debugDescription)
-                                } catch DecodingError.typeMismatch(let type, let context)  {
-                                    print("Type '\(type)' mismatch")
-                                    print("Debug Description:", context.debugDescription)
+                                    
                                 } catch {
-                                    print("error: ", error)
+//                                    print("error: ", error)
+                                    DispatchQueue.main.async {
+                                        completion(nil, PaperclipError.decoding)
+                                    }
                                 }
-                                DispatchQueue.main.async {
-                                    completion(nil, PaperclipError.decoding)
-                                }
-                                
                             }
                         }else {
                             DispatchQueue.main.async {
