@@ -2,22 +2,22 @@
 import Foundation
 
 protocol TimelineBusinessLogic {
-    func fetchFromProducts(with request: TimelineModels.FetchFromProducts.Request)
+    func fetchFromProducts(with request: TimelineModels.FetchFromListProducts.Request)
     func searchCategory(with request: TimelineModels.FetchFromFiltredCategory.Request)
 }
 
 protocol TimeLineDataStore {
-    var products: [TimelineModels.FetchFromProducts.Response.Product]? { get  set }
+    var products: [TimelineModels.FetchFromListProducts.Response.Product]? { get  set }
 }
 
 class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
   
-    var products: [TimelineModels.FetchFromProducts.Response.Product]?
+    var products: [TimelineModels.FetchFromListProducts.Response.Product]?
     var worker: TimelineWorker? = TimelineWorker()
     var presenter: TimelinePresentationLogic?
     
-    func fetchFromProducts(with request: TimelineModels.FetchFromProducts.Request) {
-        var listingsArray = [TimelineModels.FetchFromListings.Response.Listing]()
+    func fetchFromProducts(with request: TimelineModels.FetchFromListProducts.Request) {
+        var listingsArray = [TimelineModels.FetchFromListings.Response.Product]()
         var cartegoriesArray = [TimelineModels.FetchFromCategories.Response.Categroy]()
         
         let group = DispatchGroup()
@@ -38,7 +38,7 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
                         let stringDate: String = value.creationDate!
                         let date = dateFormatter.date(from: stringDate)
                         
-                        let listing = TimelineModels.FetchFromListings.Response.Listing(categoryId: value.categoryId, listingTitle: value.title, listingPrice: value.price, isUrgent: value.isUrgent, listingId: value.id, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
+                        let listing = TimelineModels.FetchFromListings.Response.Product(categoryId: value.categoryId, listingTitle: value.title, listingPrice: value.price, isUrgent: value.isUrgent, listingId: value.id, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
                         
                         listingsArray.append(listing)
                     })
@@ -61,18 +61,18 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
         }
         
         group.notify(queue: DispatchQueue.global()) {
-            var productArray = [TimelineModels.FetchFromProducts.Response.Product]()
+            var productArray = [TimelineModels.FetchFromListProducts.Response.Product]()
             listingsArray.forEach { (listing) in
                 if let category = cartegoriesArray.first(where: { $0.id == listing.categoryId }) {
-                    let listing = TimelineModels.FetchFromProducts.Response.Listing(categoryId: category.id,listingTitle: listing.listingTitle, listingPrice: listing.listingPrice, isUrgent: listing.isUrgent, listingId: listing.listingId, listingSmallUrlImage: listing.listingSmallUrlImage, listingThumbUrlImage: listing.listingThumbUrlImage, listingCreationDate: listing.listingCreationDate)
-                    let product = TimelineModels.FetchFromProducts.Response.Product(listing: listing, categoryName: category.name)
+                    let listing = TimelineModels.FetchFromListProducts.Response.Listing(categoryId: category.id,listingTitle: listing.listingTitle, listingPrice: listing.listingPrice, isUrgent: listing.isUrgent, listingId: listing.listingId, listingSmallUrlImage: listing.listingSmallUrlImage, listingThumbUrlImage: listing.listingThumbUrlImage, listingCreationDate: listing.listingCreationDate)
+                    let product = TimelineModels.FetchFromListProducts.Response.Product(categoryName: category.name, listing: listing)
                     productArray.append(product)
                 }
             }
           
             self.products = productArray
             
-            let response = TimelineModels.FetchFromProducts.Response(productArray: productArray)
+            let response = TimelineModels.FetchFromListProducts.Response(listProduct: productArray)
             self.presenter?.presentFetchProducts(with: response)
         }
     }
@@ -81,9 +81,7 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
         
         var filtredCategoryProducts = [TimelineModels.FetchFromFiltredCategory.Response.Category]()
         let categoryName = request.categoryName
-        
         let tmpProducts = products?.filter { ($0.categoryName?.contains(categoryName))! }
-       
         let groupedProducts = Dictionary(grouping: tmpProducts!, by: { $0.categoryName! })
      
         groupedProducts.forEach { (categoryId, arrayProducts) in
@@ -91,16 +89,14 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
                
                 let categoryName = arrayProducts[0].categoryName
                 
-                let category = TimelineModels.FetchFromFiltredCategory.Response.Category(categoryName: categoryName!, filtredCategoryProducts: arrayProducts)
+                let category = TimelineModels.FetchFromFiltredCategory.Response.Category(categoryName: categoryName!, listProduct: arrayProducts)
                 filtredCategoryProducts.append(category)
             }
         }
 
-        let response = TimelineModels.FetchFromFiltredCategory.Response(filtredCategory: filtredCategoryProducts)
+        let response = TimelineModels.FetchFromFiltredCategory.Response(listFiltredCategories: filtredCategoryProducts)
        self.presenter?.presentSearchedCategroy(with: response)
 
       }
-      
-  
 }
 

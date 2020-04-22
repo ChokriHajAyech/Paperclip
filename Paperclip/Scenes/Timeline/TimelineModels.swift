@@ -4,10 +4,9 @@ import Foundation
 enum TimelineModels {
     
     enum FetchFromListings {
-        
         struct Request {}
         struct Response {
-            struct Listing {
+            struct Product {
                 var categoryId: Int?
                 var listingTitle: String?
                 var listingPrice: Double?
@@ -17,14 +16,13 @@ enum TimelineModels {
                 var listingThumbUrlImage: String?
                 var listingCreationDate: Date?
             }
-            var listingsArray: [Listing]
+            var productArray: [Product]
         }
         struct ViewModel {}
     }
     
     enum FetchFromCategories {
-        
-        struct Request {  }
+        struct Request {}
         struct Response {
             struct Categroy {
                 var id: Int?
@@ -35,8 +33,7 @@ enum TimelineModels {
         struct ViewModel {}
     }
     
-    enum FetchFromProducts {
-        
+    enum FetchFromListProducts {
         struct Request {}
         struct Response {
             struct Listing {
@@ -50,10 +47,10 @@ enum TimelineModels {
                 var listingCreationDate: Date?
             }
             struct Product {
-                var listing: Listing?
                 var categoryName: String?
+                var listing: Listing?
             }
-            var productArray: [Product]
+            var listProduct: [Product]
         }
         
         struct ViewModel {
@@ -64,11 +61,11 @@ enum TimelineModels {
                 var thumbUrl: URL?
                 var smallUrl: URL?
             }
-            struct DisplayedProduct  {
-                var listing: Listing?
+            struct Product  {
                 var categoryName: String?
+                var listing: Listing?
             }
-            var displayedProduct: [DisplayedProduct]
+            var listProduct: [Product]
         }
     }
     
@@ -80,16 +77,16 @@ enum TimelineModels {
         struct Response {
             struct Category {
                 var categoryName: String
-                var filtredCategoryProducts: [FetchFromProducts.Response.Product]
+                var listProduct: [FetchFromListProducts.Response.Product]
             }
-            var filtredCategory: [Category]
+            var listFiltredCategories: [Category]
         }
         struct ViewModel {
             struct Category {
                 var categoryName: String
-                var displayedFiltredCategory: [FetchFromProducts.ViewModel.DisplayedProduct]
+                var listProduct: [FetchFromListProducts.ViewModel.Product]
             }
-            var displayedFiltredCategories: [Category]
+            var listFiltredCategories: [Category]
         }
     }
 }

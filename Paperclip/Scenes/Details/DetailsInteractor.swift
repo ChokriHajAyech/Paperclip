@@ -6,11 +6,11 @@ protocol DetailsBusinessLogic {
 }
 
 protocol DetailsDataStore {
-    var product: TimelineModels.FetchFromProducts.Response.Product? { get set }
+    var product: TimelineModels.FetchFromListProducts.Response.Product? { get set }
 }
 
 class DetailsInteractor: DetailsDataStore, DetailsBusinessLogic {
-    var product: TimelineModels.FetchFromProducts.Response.Product?
+    var product: TimelineModels.FetchFromListProducts.Response.Product?
     var presenter: DetailsPresentationLogic?
     
 

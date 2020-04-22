@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		80756D55244E78FA009BDAF7 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D54244E78FA009BDAF7 /* WebImageView.swift */; };
 		80756D58244F6E8F009BDAF7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D57244F6E8F009BDAF7 /* NavigationController.swift */; };
+		80756D5B2450BCE1009BDAF7 /* TimeLineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */; };
 		807A3AD6244C76E800C11BED /* TimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3AD5244C76E800C11BED /* TimelinePresenter.swift */; };
 		807A3AD9244C771800C11BED /* TimelineWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3AD8244C771800C11BED /* TimelineWorker.swift */; };
 		807A3ADB244C773200C11BED /* TimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3ADA244C773200C11BED /* TimelineRouter.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		80756D54244E78FA009BDAF7 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		80756D57244F6E8F009BDAF7 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLineHeaderView.swift; path = Paperclip/Common/Navigation/TimeLineHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		807A3AD5244C76E800C11BED /* TimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinePresenter.swift; sourceTree = "<group>"; };
 		807A3AD8244C771800C11BED /* TimelineWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWorker.swift; sourceTree = "<group>"; };
 		807A3ADA244C773200C11BED /* TimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRouter.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		80756D592450BCAC009BDAF7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		807A3AD3244C76D100C11BED /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		807A3AD4244C76DE00C11BED /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				80756D592450BCAC009BDAF7 /* Header */,
 				807A3AF0244C7FEC00C11BED /* UITableViewCell */,
 				807A3AD5244C76E800C11BED /* TimelinePresenter.swift */,
 				807A3AD8244C771800C11BED /* TimelineWorker.swift */,
@@ -565,6 +576,7 @@
 				807A3AED244C77E700C11BED /* DetailsInteractor.swift in Sources */,
 				807A3AE3244C779600C11BED /* DetailsPresenter.swift in Sources */,
 				807A3AE5244C77A500C11BED /* DetailsWorker.swift in Sources */,
+				80756D5B2450BCE1009BDAF7 /* TimeLineHeaderView.swift in Sources */,
 				8081E60C2449F8B500FD9126 /* ServerService.swift in Sources */,
 				807A3AEB244C77D100C11BED /* DetailsViewController.swift in Sources */,
 				8081E64F244B250400FD9126 /* ListingsService.swift in Sources */,

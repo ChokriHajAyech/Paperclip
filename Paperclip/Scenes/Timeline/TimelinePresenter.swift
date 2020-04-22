@@ -2,7 +2,7 @@
 import Foundation
 
 protocol TimelinePresentationLogic {
-    func presentFetchProducts(with response: TimelineModels.FetchFromProducts.Response)
+    func presentFetchProducts(with response: TimelineModels.FetchFromListProducts.Response)
     func presentSearchedCategroy(with response: TimelineModels.FetchFromFiltredCategory.Response)
 }
 
@@ -10,65 +10,65 @@ class TimelinePresenter: TimelinePresentationLogic {
     
     weak var viewController: TimelineDisplayLogic?
     
-    func presentFetchProducts(with response: TimelineModels.FetchFromProducts.Response) {
+    func presentFetchProducts(with response: TimelineModels.FetchFromListProducts.Response) {
         
-        var displayedProduct = [TimelineModels.FetchFromProducts.ViewModel.DisplayedProduct]()
-        var productArray = response.productArray
+        var displayedProduct = [TimelineModels.FetchFromListProducts.ViewModel.Product]()
+        var productArray = response.listProduct
         sortListing(array: &productArray)
         
         productArray.forEach { (product) in
             
             let listing = product.listing
             let categoryName = product.categoryName
-            let listingVM = TimelineModels.FetchFromProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
-            let product =  TimelineModels.FetchFromProducts.ViewModel.DisplayedProduct(listing: listingVM, categoryName: categoryName)
+            let listingVM = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+            let product =  TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVM)
             displayedProduct.append(product)
         }
         
-        let viewModel = TimelineModels.FetchFromProducts.ViewModel(displayedProduct: displayedProduct)
+        let viewModel = TimelineModels.FetchFromListProducts.ViewModel(listProduct: displayedProduct)
         viewController?.displayFetchFromProducts(with:viewModel)
     }
     
     func presentSearchedCategroy(with response: TimelineModels.FetchFromFiltredCategory.Response) {
         
-        let productArray = response.filtredCategory
+        let productArray = response.listFiltredCategories
         var displayedCategory = [TimelineModels.FetchFromFiltredCategory.ViewModel.Category]()
         
         productArray.forEach { (category) in
             
-            var displayedProduct = [TimelineModels.FetchFromProducts.ViewModel.DisplayedProduct]()
+            var displayedProduct = [TimelineModels.FetchFromListProducts.ViewModel.Product]()
             let categoryName = category.categoryName
-            let products = category.filtredCategoryProducts
-            //sortListing(array: &products)
+            var products = category.listProduct
+            sortListing(array: &products)
+            
             products.forEach { (product) in
-                
                 let listing = product.listing
                 let categoryName = product.categoryName
-                let listingVm = TimelineModels.FetchFromProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+                let listingVm = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
                 
-                let product = TimelineModels.FetchFromProducts.ViewModel.DisplayedProduct(listing: listingVm, categoryName: categoryName)
+                let product = TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVm)
                 displayedProduct.append(product)
             }
             
-            let categoryVM = TimelineModels.FetchFromFiltredCategory.ViewModel.Category(categoryName: categoryName, displayedFiltredCategory: displayedProduct)
+            let categoryVM = TimelineModels.FetchFromFiltredCategory.ViewModel.Category(categoryName: categoryName, listProduct: displayedProduct)
             displayedCategory.append(categoryVM)
         }
         
-        let viewModel = TimelineModels.FetchFromFiltredCategory.ViewModel(displayedFiltredCategories: displayedCategory)
+        let viewModel = TimelineModels.FetchFromFiltredCategory.ViewModel(listFiltredCategories: displayedCategory)
         viewController?.displayFiltredCategory(with:viewModel)
     }
     
     
-    func sortListing( array: inout [TimelineModels.FetchFromProducts.Response.Product]) {
+    func sortListing( array: inout [TimelineModels.FetchFromListProducts.Response.Product]) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
-        array.sort { (lhs: TimelineModels.FetchFromProducts.Response.Product, rhs: TimelineModels.FetchFromProducts.Response.Product) -> Bool in
+        array.sort { (lhs: TimelineModels.FetchFromListProducts.Response.Product, rhs: TimelineModels.FetchFromListProducts.Response.Product) -> Bool in
             return (lhs.listing?.listingCreationDate!.compare(rhs.listing!.listingCreationDate!) == .orderedDescending
             )}
         
-        array.sort { (lhs: TimelineModels.FetchFromProducts.Response.Product, rhs: TimelineModels.FetchFromProducts.Response.Product) -> Bool in
+        array.sort { (lhs: TimelineModels.FetchFromListProducts.Response.Product, rhs: TimelineModels.FetchFromListProducts.Response.Product) -> Bool in
             return (lhs.listing!.isUrgent! && !rhs.listing!.isUrgent!)
         }
     }
