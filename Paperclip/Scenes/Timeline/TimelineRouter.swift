@@ -20,12 +20,12 @@ class TimelineRouter: NSObject, TimelineRoutingLogic, TimelineDataPassing {
         var destinationDS = destinationVC.router?.dataStore
         passDataToDetails(source: dataStore!, destination: &(destinationDS!), selectedRow: row)
         navigateToDetails(source: viewController!, destination: destinationVC)
-        
     }
     
     // MARK: Passing data
     
     func passDataToDetails(source: TimeLineDataStore, destination: inout DetailsDataStore, selectedRow: Int) {
+        
         destination.product = source.products?[selectedRow]
     }
     

@@ -4,6 +4,7 @@ import Foundation
 enum TimelineModels {
     
     enum FetchFromListings {
+        
         struct Request {}
         struct Response {
             struct Listing {
@@ -22,6 +23,7 @@ enum TimelineModels {
     }
     
     enum FetchFromCategories {
+        
         struct Request {  }
         struct Response {
             struct Categroy {
@@ -35,8 +37,7 @@ enum TimelineModels {
     
     enum FetchFromProducts {
         
-        struct Request {
-        }
+        struct Request {}
         struct Response {
             struct Listing {
                 var categoryId: Int?
@@ -72,6 +73,7 @@ enum TimelineModels {
     }
     
     enum FetchFromFiltredCategory {
+        
         struct Request {
             var categoryName: String
         }
@@ -80,7 +82,6 @@ enum TimelineModels {
                 var categoryName: String
                 var filtredCategoryProducts: [FetchFromProducts.Response.Product]
             }
-            
             var filtredCategory: [Category]
         }
         struct ViewModel {
