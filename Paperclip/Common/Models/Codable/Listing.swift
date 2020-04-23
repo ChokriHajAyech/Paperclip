@@ -1,10 +1,12 @@
 
 import Foundation
 
-struct Listing: Codable {
+struct ListingCodable: Codable {
     var id: Int?
     var categoryId: Int?
     var title: String?
+    var description: String?
+    var siret: String?
     var price: Double?
     var smallUrlImage: String?
     var thumbUrlImage: String?
@@ -12,7 +14,7 @@ struct Listing: Codable {
     var isUrgent: Bool?
 }
 
-extension Listing {
+extension ListingCodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: ListingCodingKeys.self)
@@ -20,6 +22,8 @@ extension Listing {
         id = try container.decodeIfPresent(Int.self, forKey: .id)
         categoryId = try container.decodeIfPresent(Int.self, forKey: .categoryId)
         title = try container.decodeIfPresent(String.self, forKey: .title)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+        siret = try container.decodeIfPresent(String.self, forKey: .siret)
         price = try container.decodeIfPresent(Double.self, forKey: .price)
         let imageUrl = try container.nestedContainer(keyedBy:ImagesCodingKeys.self, forKey: .imagesUrl)
         smallUrlImage = try imageUrl.decodeIfPresent(String.self, forKey: .small)
@@ -34,6 +38,8 @@ extension Listing {
         case id
         case categoryId = "category_id"
         case title
+        case description
+        case siret
         case price
         case imagesUrl = "images_url"
         case creationDate = "creation_date"

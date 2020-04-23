@@ -20,7 +20,7 @@ class TimelinePresenter: TimelinePresentationLogic {
             
             let listing = product.listing
             let categoryName = product.categoryName
-            let listingVM = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+            let listingVM = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
             let product =  TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVM)
             displayedProduct.append(product)
         }
@@ -44,7 +44,7 @@ class TimelinePresenter: TimelinePresentationLogic {
             products.forEach { (product) in
                 let listing = product.listing
                 let categoryName = product.categoryName
-                let listingVm = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+                let listingVm = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
                 
                 let product = TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVm)
                 displayedProduct.append(product)
@@ -59,16 +59,16 @@ class TimelinePresenter: TimelinePresentationLogic {
     }
     
     
-    func sortListing( array: inout [TimelineModels.FetchFromListProducts.Response.Product]) {
+    func sortListing( array: inout [Product]) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
-        array.sort { (lhs: TimelineModels.FetchFromListProducts.Response.Product, rhs: TimelineModels.FetchFromListProducts.Response.Product) -> Bool in
+        array.sort { (lhs: Product, rhs: Product) -> Bool in
             return (lhs.listing?.listingCreationDate!.compare(rhs.listing!.listingCreationDate!) == .orderedDescending
             )}
         
-        array.sort { (lhs: TimelineModels.FetchFromListProducts.Response.Product, rhs: TimelineModels.FetchFromListProducts.Response.Product) -> Bool in
+        array.sort { (lhs:Product, rhs: Product) -> Bool in
             return (lhs.listing!.isUrgent! && !rhs.listing!.isUrgent!)
         }
     }

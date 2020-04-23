@@ -7,18 +7,18 @@ protocol TimelineBusinessLogic {
 }
 
 protocol TimeLineDataStore {
-    var products: [TimelineModels.FetchFromListProducts.Response.Product]? { get  set }
+    var products: [Product]? { get  set }
 }
 
 class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
   
-    var products: [TimelineModels.FetchFromListProducts.Response.Product]?
+    var products: [Product]?
     var worker: TimelineWorker? = TimelineWorker()
     var presenter: TimelinePresentationLogic?
     
     func fetchFromProducts(with request: TimelineModels.FetchFromListProducts.Request) {
-        var listingsArray = [TimelineModels.FetchFromListings.Response.Product]()
-        var cartegoriesArray = [TimelineModels.FetchFromCategories.Response.Categroy]()
+        var listingsArray = [Listing]()
+        var cartegoriesArray = [Categroy]()
         
         let group = DispatchGroup()
         let concurrentQueue = DispatchQueue(label: "com.queue.Concurrent", attributes: .concurrent)
@@ -26,10 +26,9 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
         group.enter()
         concurrentQueue.async(group: group) {
             self.worker?.fetchListings(completion: { (response, error) in
+            
                 if let listings = response {
-                   
                     listings.forEach({ (value) in
-                        
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateStyle = .long
                         dateFormatter.locale = Locale(identifier: "en_US")
@@ -38,7 +37,10 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
                         let stringDate: String = value.creationDate!
                         let date = dateFormatter.date(from: stringDate)
                         
-                        let listing = TimelineModels.FetchFromListings.Response.Product(categoryId: value.categoryId, listingTitle: value.title, listingPrice: value.price, isUrgent: value.isUrgent, listingId: value.id, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
+
+                        let listing = Listing(categoryId: value.categoryId, listingId: value.id, listingTitle: value.title, listingPrice: value.price, isUrgent: value.isUrgent, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
+                        
+                        
                         
                         listingsArray.append(listing)
                     })
@@ -52,7 +54,7 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
             self.worker?.fetchCategories(completion: { (response, error) in
                 if let categories = response {
                     categories.forEach({ (value) in
-                        let category = TimelineModels.FetchFromCategories.Response.Categroy(id: value.id, name: value.name)
+                        let category = Categroy(id: value.id, name: value.name)
                         cartegoriesArray.append(category)
                     })
                 }
@@ -61,11 +63,11 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
         }
         
         group.notify(queue: DispatchQueue.global()) {
-            var productArray = [TimelineModels.FetchFromListProducts.Response.Product]()
+            var productArray = [Product]()
             listingsArray.forEach { (listing) in
                 if let category = cartegoriesArray.first(where: { $0.id == listing.categoryId }) {
-                    let listing = TimelineModels.FetchFromListProducts.Response.Listing(categoryId: category.id,listingTitle: listing.listingTitle, listingPrice: listing.listingPrice, isUrgent: listing.isUrgent, listingId: listing.listingId, listingSmallUrlImage: listing.listingSmallUrlImage, listingThumbUrlImage: listing.listingThumbUrlImage, listingCreationDate: listing.listingCreationDate)
-                    let product = TimelineModels.FetchFromListProducts.Response.Product(categoryName: category.name, listing: listing)
+                    let listing = Listing(categoryId: category.id,listingId: listing.listingId, listingTitle: listing.listingTitle, listingDescription: listing.listingDescription, listingSiret: listing.listingSiret, listingPrice: listing.listingPrice, isUrgent: listing.isUrgent, listingSmallUrlImage: listing.listingSmallUrlImage, listingThumbUrlImage: listing.listingThumbUrlImage, listingCreationDate: listing.listingCreationDate)
+                    let product = Product(categoryName: category.name, listing: listing)
                     productArray.append(product)
                 }
             }

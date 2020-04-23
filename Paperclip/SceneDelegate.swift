@@ -65,7 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configureApplication() {
         
         // Create a ViewController object and set it as the scene's window's root view controller.
-        self.window!.rootViewController =  NavigationController(rootViewController: TimelineViewController(style: .grouped))
+        self.window!.rootViewController =  NavigationController(rootViewController: TimelineViewController(style: .plain))
         
     }
     

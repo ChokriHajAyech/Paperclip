@@ -2,10 +2,10 @@
 import UIKit
 
 protocol DetailsDisplayLogic {
-    
+    func displayProductDetails(with response: DetailsModels.DetailsProduct.ViewModel)
 }
 
-class DetailsViewController: UIViewController, DetailsDisplayLogic {
+class DetailsViewController: UIViewController{
     
     var router: (NSObjectProtocol & DetailsRoutingLogic & DetailsDataPassing)?
     var interactor: DetailsBusinessLogic?
@@ -24,12 +24,15 @@ class DetailsViewController: UIViewController, DetailsDisplayLogic {
     
     // MARK: - View Lifecycle
     
-    override func viewDidLoad() { }
+    override func viewDidLoad() {
+        displayProduct()
+    }
     
     override func viewWillAppear(_ animated: Bool) { }
     
     override func loadView() {
         setupView()
+        
     }
     
     // MARK: - Setup
@@ -59,5 +62,16 @@ class DetailsViewController: UIViewController, DetailsDisplayLogic {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    func displayProduct() {
+        let request = DetailsModels.DetailsProduct.Request()
+        self.interactor?.fetchProductDetails(with: request)
+    }
+}
+
+extension DetailsViewController: DetailsDisplayLogic   {
+    func displayProductDetails(with response: DetailsModels.DetailsProduct.ViewModel) {
+        
     }
 }

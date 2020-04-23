@@ -48,6 +48,7 @@
 		8081E664244B297700FD9126 /* listing.json in Resources */ = {isa = PBXBuildFile; fileRef = 8081E662244B297700FD9126 /* listing.json */; };
 		8081E665244B297700FD9126 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8081E663244B297700FD9126 /* categories.json */; };
 		8081E667244B32A400FD9126 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E666244B32A400FD9126 /* ServiceFactory.swift */; };
+		80825A392451DD8F00845C9C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80825A382451DD8F00845C9C /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		8081E662244B297700FD9126 /* listing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listing.json; sourceTree = "<group>"; };
 		8081E663244B297700FD9126 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		8081E666244B32A400FD9126 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
+		80825A382451DD8F00845C9C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,15 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		80756D5C2450C772009BDAF7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				80756D592450BCAC009BDAF7 /* Header */,
+				807A3AF0244C7FEC00C11BED /* UITableViewCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		807A3AD3244C76D100C11BED /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,8 +181,7 @@
 		807A3AD4244C76DE00C11BED /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				80756D592450BCAC009BDAF7 /* Header */,
-				807A3AF0244C7FEC00C11BED /* UITableViewCell */,
+				80756D5C2450C772009BDAF7 /* UI */,
 				807A3AD5244C76E800C11BED /* TimelinePresenter.swift */,
 				807A3AD8244C771800C11BED /* TimelineWorker.swift */,
 				807A3ADA244C773200C11BED /* TimelineRouter.swift */,
@@ -266,8 +276,8 @@
 		8081E6022449EA8600FD9126 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8081E6082449F6ED00FD9126 /* Listing.swift */,
-				8081E6032449F3F000FD9126 /* Category.swift */,
+				80825A3A2451F0AA00845C9C /* Codable */,
+				80825A382451DD8F00845C9C /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,13 +285,13 @@
 		8081E6052449F4E000FD9126 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8081E60F2449F8EE00FD9126 /* Config */,
 				80756D56244F6E72009BDAF7 /* Navigation */,
 				807A3AF1244CD80D00C11BED /* Extension */,
 				8081E61C244B1C5B00FD9126 /* Worker */,
 				8081E6022449EA8600FD9126 /* Models */,
 				8081E6192449FBFA00FD9126 /* Logging */,
 				8081E6142449FA8500FD9126 /* Error */,
-				8081E60F2449F8EE00FD9126 /* Conf */,
 				8081E60A2449F8A700FD9126 /* Network */,
 			);
 			path = Common;
@@ -299,12 +309,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		8081E60F2449F8EE00FD9126 /* Conf */ = {
+		8081E60F2449F8EE00FD9126 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				8081E6102449F94800FD9126 /* Conf.swift */,
 			);
-			path = Conf;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		8081E6142449FA8500FD9126 /* Error */ = {
@@ -418,6 +428,15 @@
 				8081E662244B297700FD9126 /* listing.json */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		80825A3A2451F0AA00845C9C /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				8081E6032449F3F000FD9126 /* Category.swift */,
+				8081E6082449F6ED00FD9126 /* Listing.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +586,7 @@
 				80756D58244F6E8F009BDAF7 /* NavigationController.swift in Sources */,
 				8081E61B2449FC0A00FD9126 /* Log.swift in Sources */,
 				807A3ADD244C774300C11BED /* TimelineModels.swift in Sources */,
+				80825A392451DD8F00845C9C /* Models.swift in Sources */,
 				8081E6132449FA2F00FD9126 /* NetworkManager.swift in Sources */,
 				807A3AE7244C77B600C11BED /* DetailsRouter.swift in Sources */,
 				807A3AF3244CD81F00C11BED /* Extension.swift in Sources */,

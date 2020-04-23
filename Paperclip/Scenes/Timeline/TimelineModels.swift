@@ -6,16 +6,6 @@ enum TimelineModels {
     enum FetchFromListings {
         struct Request {}
         struct Response {
-            struct Product {
-                var categoryId: Int?
-                var listingTitle: String?
-                var listingPrice: Double?
-                var isUrgent: Bool?
-                var listingId: Int?
-                var listingSmallUrlImage: String?
-                var listingThumbUrlImage: String?
-                var listingCreationDate: Date?
-            }
             var productArray: [Product]
         }
         struct ViewModel {}
@@ -24,10 +14,6 @@ enum TimelineModels {
     enum FetchFromCategories {
         struct Request {}
         struct Response {
-            struct Categroy {
-                var id: Int?
-                var name: String?
-            }
             var categroyArray: [Categroy]
         }
         struct ViewModel {}
@@ -36,25 +22,11 @@ enum TimelineModels {
     enum FetchFromListProducts {
         struct Request {}
         struct Response {
-            struct Listing {
-                var categoryId: Int?
-                var listingTitle: String?
-                var listingPrice: Double?
-                var isUrgent: Bool?
-                var listingId: Int?
-                var listingSmallUrlImage: String?
-                var listingThumbUrlImage: String?
-                var listingCreationDate: Date?
-            }
-            struct Product {
-                var categoryName: String?
-                var listing: Listing?
-            }
             var listProduct: [Product]
         }
-        
         struct ViewModel {
             struct Listing {
+                let listingId: Int?
                 var listingTitle: String?
                 var listingPrice: String?
                 var isUrgent: Bool?
@@ -77,7 +49,7 @@ enum TimelineModels {
         struct Response {
             struct Category {
                 var categoryName: String
-                var listProduct: [FetchFromListProducts.Response.Product]
+                var listProduct: [Product]
             }
             var listFiltredCategories: [Category]
         }

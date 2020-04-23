@@ -2,7 +2,7 @@
 import UIKit
 
 protocol TimelineRoutingLogic {
-    func routeToDetails(row: Int) 
+    func routeToDetails(id: Int)
 }
 
 protocol TimelineDataPassing {
@@ -14,19 +14,18 @@ class TimelineRouter: NSObject, TimelineRoutingLogic, TimelineDataPassing {
     var viewController: TimelineViewController?
     var dataStore: TimeLineDataStore?
     
-    func routeToDetails(row: Int) {
-        
+    func routeToDetails(id: Int) {
         let destinationVC = DetailsViewController()
         var destinationDS = destinationVC.router?.dataStore
-        passDataToDetails(source: dataStore!, destination: &(destinationDS!), selectedRow: row)
+        passDataToDetails(source: dataStore!, destination: &(destinationDS!), idProduct: id)
         navigateToDetails(source: viewController!, destination: destinationVC)
     }
     
     // MARK: Passing data
     
-    func passDataToDetails(source: TimeLineDataStore, destination: inout DetailsDataStore, selectedRow: Int) {
-        
-        destination.product = source.products?[selectedRow]
+    func passDataToDetails(source: TimeLineDataStore, destination: inout DetailsDataStore, idProduct: Int) {
+        destination.product = source.products?.first(where: { $0.listing?.listingId == idProduct
+        })
     }
     
     // MARK: Navigation

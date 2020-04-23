@@ -17,6 +17,7 @@ class TimeLineHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         configureContents()
     }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -24,13 +25,10 @@ class TimeLineHeaderView: UITableViewHeaderFooterView {
     
     func configureContents() {
         title.translatesAutoresizingMaskIntoConstraints = false
-        
         contentView.addSubview(title)
-        
-        // Center the image vertically and place it near the leading
-        // edge of the view. Constrain its width and height to 50 points.
+        contentView.backgroundColor = .white
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            title.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor), 
             title.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor)
         ])
     }

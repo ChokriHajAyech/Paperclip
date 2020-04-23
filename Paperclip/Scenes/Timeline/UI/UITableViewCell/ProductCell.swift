@@ -71,16 +71,16 @@ class ProductCell: UITableViewCell {
         addSubview(productIndicatorStatus)
         addSubview(separator)
         
-        productImage.anchor(top: layoutMarginsGuide.topAnchor, left: layoutMarginsGuide.leftAnchor, bottom: separator.topAnchor, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 20, paddingRight: 0, width: 90, height: 90, enableInsets: false)
+        productImage.anchor(top: layoutMarginsGuide.topAnchor, left: layoutMarginsGuide.leftAnchor, bottom: separator.topAnchor, right: nil, paddingTop: 5, paddingLeft: 0, paddingBottom: 20, paddingRight: 0, width: 90, height: 90, enableInsets: false)
         
-        productTitleLabel.anchor(top: layoutMarginsGuide.topAnchor, left: productImage.layoutMarginsGuide.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 35, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
+        productTitleLabel.anchor(top: layoutMarginsGuide.topAnchor, left: productImage.layoutMarginsGuide.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
         
         productPriceLabel.anchor(top: productTitleLabel.layoutMarginsGuide.bottomAnchor, left:
             productImage.layoutMarginsGuide.rightAnchor, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: frame.size.width , height: 0, enableInsets: false)
         
-        productIndicatorStatus.anchor(top: layoutMarginsGuide.topAnchor, left: nil, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 2, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
+        productIndicatorStatus.anchor(top: topAnchor, left: nil, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
         
-        separator.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: frame.size.width, height: 0.2, enableInsets: false)
+        separator.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: frame.size.width, height: 0.3, enableInsets: false)
     }
     
     func bind(_ listing: TimelineModels.FetchFromListProducts.ViewModel.Listing?) {

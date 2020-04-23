@@ -7,7 +7,8 @@ struct Conf {
     static let cacheMemoryCapacity = 512000 * 10
 
 	struct Services {
-		static let mode = "server"
+
+		static let mode = "demo" //static let mode = "server"
 		static let baseURL = "https://raw.githubusercontent.com"
 		static let listing = "/leboncoin/paperclip/master/listing.json"
 		static let categories = "/leboncoin/paperclip/master/categories.json"

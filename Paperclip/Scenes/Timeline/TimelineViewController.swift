@@ -16,14 +16,16 @@ class TimelineViewController: UITableViewController {
     private var router: (NSObjectProtocol & TimelineRoutingLogic & TimelineDataPassing)?
     private var resultSearchController = UISearchController()
     private var isEnabledFiltre = false
-    private var displayedProduct: [TimelineModels.FetchFromListProducts.ViewModel.Product]?  {
+    private var indicator = UIActivityIndicatorView()
+    
+    private var viewModel: TimelineModels.FetchFromListProducts.ViewModel?  {
         didSet {
             DispatchQueue.main.async {
                 self.loadUI()
             }
         }
     }
-    private var displayedCategory: [TimelineModels.FetchFromFiltredCategory.ViewModel.Category]?  {
+    private var viewModelFiltred: TimelineModels.FetchFromFiltredCategory.ViewModel?  {
         didSet {
             DispatchQueue.main.async {
                 self.loadUI()
@@ -35,15 +37,25 @@ class TimelineViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setup()
         fetchFromProducts()
     }
     
     override func loadView() {
         super.loadView()
+        
         configureTableView()
         configureSearchController()
         configureNavigationBar()
+        configureSpinner()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        self.indicator.translatesAutoresizingMaskIntoConstraints = true
+        indicator.center = UIApplication.shared.keyWindow!.center
     }
     
     // MARK: - Object lifecycle
@@ -83,12 +95,14 @@ class TimelineViewController: UITableViewController {
         tableView.register(ProductCell.self, forCellReuseIdentifier: cellId)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
+        tableView.estimatedSectionHeaderHeight = 10
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         tableView.sectionFooterHeight = 0.0
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.register(TimeLineHeaderView.self,
-            forHeaderFooterViewReuseIdentifier: "sectionHeader")
+                           forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
     
     // MARK: - Configure SearchController
@@ -108,11 +122,20 @@ class TimelineViewController: UITableViewController {
     }
     
     // MARK: - Configure NavigationBar
-     
-     private func configureNavigationBar () {
+    
+    private func configureNavigationBar () {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
         self.navigationController?.navigationBar.topItem?.title = "Liste des Produits"
-     }
+    }
+    
+    // MARK: - Configure UIActivityIndicatorView
+    
+    func configureSpinner() {
+        let frontWindow = UIApplication.shared.keyWindow
+        indicator.center = frontWindow!.center
+        frontWindow?.addSubview(indicator)
+        indicator.startAnimating()
+    }
     
     // MARK: - UITableView DataSource
     
@@ -121,9 +144,9 @@ class TimelineViewController: UITableViewController {
         var listing: TimelineModels.FetchFromListProducts.ViewModel.Listing?
         
         if isEnabledFiltre {
-            listing = displayedCategory?[indexPath.section].listProduct[indexPath.row].listing
+            listing = viewModelFiltred?.listFiltredCategories[indexPath.section].listProduct[indexPath.row].listing
         } else {
-            listing = displayedProduct?[indexPath.section].listing
+            listing = viewModel?.listProduct[indexPath.section].listing
         }
         cell.bind(listing)
         return cell
@@ -133,49 +156,41 @@ class TimelineViewController: UITableViewController {
         
         var numberOfRowsInSection: Int? = 1
         if isEnabledFiltre {
-            numberOfRowsInSection = displayedCategory?[section].listProduct.count
+            numberOfRowsInSection = viewModelFiltred?.listFiltredCategories[section].listProduct.count
         }
         return numberOfRowsInSection ?? 0
     }
     
-     override func numberOfSections(in tableView: UITableView) -> Int {
-         
-         var numberOfSections = displayedProduct?.count
-         if isEnabledFiltre {
-             numberOfSections = displayedCategory?.count
-         }
-         return numberOfSections ?? 0
-     }
-
-//        func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//            return 150
-//        }
-//
-    override func tableView(_ tableView: UITableView,
-            viewForHeaderInSection section: Int) -> UIView? {
-       let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                   "sectionHeader") as? TimeLineHeaderView
-        var categoryName =  displayedProduct?[section].categoryName
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        var numberOfSections = viewModel?.listProduct.count
         if isEnabledFiltre {
-            categoryName = displayedCategory?[section].categoryName
-        }        
-        view?.title.text = categoryName
-       return view
+            numberOfSections = viewModelFiltred?.listFiltredCategories.count
+        }
+        return numberOfSections  ?? 0
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+            "sectionHeader") as? TimeLineHeaderView
+        var categoryName = viewModel?.listProduct[section].categoryName
+        if isEnabledFiltre {
+            categoryName = viewModelFiltred?.listFiltredCategories[section].categoryName
+        }        
+        view?.title.text = categoryName
+        return view
+    }
     
     // MARK: - UITableView Delegate
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return UITableView.automaticDimension
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        router?.routeToDetails(row: indexPath.row)
+        var idProduct = viewModel?.listProduct[indexPath.section].listing?.listingId
+        if isEnabledFiltre {
+            idProduct =  viewModelFiltred?.listFiltredCategories[indexPath.section].listProduct[indexPath.row].listing?.listingId
+        }
+        router?.routeToDetails(id: idProduct!)
     }
-  
 }
 
 // MARK: TimelineDisplayLogic
@@ -183,11 +198,14 @@ class TimelineViewController: UITableViewController {
 extension TimelineViewController: TimelineDisplayLogic {
     
     func displayFiltredCategory(with viewModel: TimelineModels.FetchFromFiltredCategory.ViewModel) {
-        displayedCategory = viewModel.listFiltredCategories
+        viewModelFiltred = viewModel
     }
     
     func displayFetchFromProducts(with viewModel: TimelineModels.FetchFromListProducts.ViewModel) {
-        displayedProduct = viewModel.listProduct
+        DispatchQueue.main.async {
+            self.indicator.stopAnimating()
+        }
+        self.viewModel = viewModel
     }
 }
 

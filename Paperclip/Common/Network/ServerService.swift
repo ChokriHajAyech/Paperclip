@@ -147,12 +147,12 @@ class ServerService: Service {
                         httpResponse.statusCode == 206 {
                         if let data = data, data.isEmpty == false {
                             do {
-//                                if let dataString = String(data: data, encoding: .utf8) {
-//                                    os_log("data loaded: %{PRIVATE}@",
-//                                           log: Log.network,
-//                                           type: .debug,
-//                                           dataString)
-//                                }
+                                if let dataString = String(data: data, encoding: .utf8) {
+                                    os_log("data loaded: %{PRIVATE}@",
+                                           log: Log.network,
+                                           type: .debug,
+                                           dataString)
+                                }
                                 
                                 do {
                                     let dataDecoded = try JSONDecoder().decode(type, from: data)

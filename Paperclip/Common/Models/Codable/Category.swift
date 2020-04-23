@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Category: Codable {
+struct CategoryCodable: Codable {
     var id: Int
     var name: String
 }
