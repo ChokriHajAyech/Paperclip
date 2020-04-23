@@ -21,7 +21,7 @@
             <Locations>
                <Location
                   uuid = "FABFC100-3E96-423D-BD74-731F1B0C64C0 - 433f3da67f700a1d"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Paperclip.TimelineInteractor.searchCategory(with: Paperclip.TimelineModels.FetchFromFiltredCategory.Request) -&gt; ()"
@@ -36,7 +36,7 @@
                </Location>
                <Location
                   uuid = "FABFC100-3E96-423D-BD74-731F1B0C64C0 - a450ee5d4b3f6fce"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #3 (Swift.String, Swift.Array&lt;Paperclip.TimelineModels.FetchFromListProducts.Response.Product&gt;) -&gt; () in Paperclip.TimelineInteractor.searchCategory(with: Paperclip.TimelineModels.FetchFromFiltredCategory.Request) -&gt; ()"
@@ -50,22 +50,6 @@
                   offsetFromSymbolStart = "159">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D94056C-D422-47DD-873D-BA837DC73294"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Documents/Edf project/Projects-V3/bee-edf_bee/Bee-iOS/Messenger/Messenger/Classes/Network/Services/Listings/Demo/DemoListingsService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "7"
-            endingLineNumber = "7"
-            landmarkName = "listings(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -88,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8A62C9D8-826B-498E-8A9B-46BE25796FA6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Paperclip/Scenes/Details/DetailsViewController.swift"
@@ -104,7 +88,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E4733D92-B88E-4DCA-B7B3-C4EABDE2CE08"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Paperclip/Scenes/Details/DetailsViewController.swift"
@@ -120,16 +104,39 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F73E4BDD-BDEA-416A-9FAC-D27990671BBE"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Paperclip/Scenes/Timeline/TimelineViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "displayFiltredCategory(with:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            uuid = "CCFA0E1E-AC86-4B7F-AC2B-A2F1C4BC758D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = "UIViewAlertForUnsatisfiableConstraints"
+            moduleName = "">
+            <Locations>
+               <Location
+                  uuid = "CCFA0E1E-AC86-4B7F-AC2B-A2F1C4BC758D - ba3ad5676a792f38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UIViewAlertForUnsatisfiableConstraints"
+                  moduleName = "UIKitCore"
+                  usesParentBreakpointCondition = "Yes"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

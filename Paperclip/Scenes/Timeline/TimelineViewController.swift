@@ -125,6 +125,7 @@ class TimelineViewController: UITableViewController {
     
     private func configureNavigationBar () {
         self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.topItem?.title = "Liste des Produits"
     }
     
