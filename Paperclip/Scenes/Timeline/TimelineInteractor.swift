@@ -32,7 +32,7 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
                     dateFormatter.locale = Locale(identifier: "en_US")
                     dateFormatter.timeZone = NSTimeZone(name: "GMT") as TimeZone?
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                    let stringDate: String = value.creationDate!
+                    let stringDate: String = value.creationDate ?? ""
                     let date = dateFormatter.date(from: stringDate)
                     
                     let listing = Listing(categoryId: value.categoryId, listingId: value.id, listingTitle: value.title,listingDescription:value.description,listingSiret: value.siret,  listingPrice: value.price, isUrgent: value.isUrgent, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
@@ -74,15 +74,16 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
         
         var filtredCategoryProducts = [TimelineModels.FetchFromFiltredCategory.Response.Category]()
         let categoryName = request.categoryName
-        let tmpProducts = products?.filter { ($0.categoryName?.contains(categoryName))! }
-        let groupedProducts = Dictionary(grouping: tmpProducts!, by: { $0.categoryName! })
+        let tmpProducts = products?.filter { ($0.categoryName?.containsIgnoringCase(categoryName)) ?? false }
+        guard tmpProducts != nil else {
+            return
+        }
+        let groupedProducts = Dictionary(grouping: tmpProducts!, by: { $0.categoryName })
         
         groupedProducts.forEach { (categoryId, arrayProducts) in
             if arrayProducts.count > 0 {
-                
                 let categoryName = arrayProducts[0].categoryName
-                
-                let category = TimelineModels.FetchFromFiltredCategory.Response.Category(categoryName: categoryName!, listProduct: arrayProducts)
+                let category = TimelineModels.FetchFromFiltredCategory.Response.Category(categoryName: categoryName ?? "", listProduct: arrayProducts)
                 filtredCategoryProducts.append(category)
             }
         }

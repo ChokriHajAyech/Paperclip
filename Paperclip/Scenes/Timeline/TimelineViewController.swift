@@ -189,7 +189,11 @@ class TimelineViewController: UITableViewController {
         if isEnabledFiltre {
             idProduct =  viewModelFiltred?.listFiltredCategories[indexPath.section].listProduct[indexPath.row].listing?.listingId
         }
-        router?.routeToDetails(id: idProduct!)
+        
+        guard let id = idProduct else {
+            return
+        }
+        router?.routeToDetails(id: id)
     }
 }
 
