@@ -76,7 +76,6 @@ class TimelineInteractorTests: XCTestCase {
         XCTAssertTrue(timelineWorkerSpy.fetchCategoriesCalled, "fetchCategories() should ask TimelineWorker to fetch listing")
     }
     
-    
     func testSearchCategory() {
         
         // Given

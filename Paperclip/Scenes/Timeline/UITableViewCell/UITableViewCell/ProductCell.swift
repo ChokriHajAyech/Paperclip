@@ -6,9 +6,9 @@ class ProductCell: UITableViewCell {
     
     // MARK: UI Properties
     
-     static let cellId = "ListingCell"
+    static let cellId = "ListingCell"
     
-     let productTitleLabel : UILabel = {
+    let productTitleLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.font = UIFont.boldSystemFont(ofSize: 16)
@@ -18,7 +18,7 @@ class ProductCell: UITableViewCell {
         return lbl
     }()
     
-     let productPriceLabel : UILabel = {
+    let productPriceLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.font = UIFont.systemFont(ofSize: 16)
@@ -26,7 +26,7 @@ class ProductCell: UITableViewCell {
         return lbl
     }()
     
-     let productImage : WebImageView = {
+    let productImage : WebImageView = {
         let imgView = WebImageView(image: #imageLiteral(resourceName: "default_thumb"))
         imgView.backgroundColor = .lightGray
         imgView.backgroundColor?.withAlphaComponent(0.2)
@@ -35,7 +35,7 @@ class ProductCell: UITableViewCell {
         return imgView
     }()
     
-     let productIndicatorStatus : UIImageView = {
+    let productIndicatorStatus : UIImageView = {
         let imgView = UIImageView(image: #imageLiteral(resourceName: "indicator"))
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
@@ -56,6 +56,11 @@ class ProductCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        contentView.backgroundColor = UIColor.white
     }
     
     // MARK: - Setup
