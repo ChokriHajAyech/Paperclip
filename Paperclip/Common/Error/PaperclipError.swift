@@ -6,16 +6,16 @@ enum PaperclipError: Error {
     
     /// Unable to decode (eg: JSON decoding)
     case decoding
-
+    
     /// The form is invalid
     case invalidForm
-
+    
     /// Network connection error
     case networkConnection
     
     /// Server error
     case server
-
+    
     /// Server timedOut
     case networkTimedOut
     
@@ -45,8 +45,11 @@ enum PaperclipError: Error {
 }
 
 extension PaperclipError: LocalizedError {
+    
     public var errorDescription: String? {
+        
         switch self {
+            
         case .unknow: return NSLocalizedString("error.unknow", comment: "")
         case .decoding: return NSLocalizedString("error.decoding", comment: "")
         case .invalidForm: return NSLocalizedString("error.invalidForm", comment: "")

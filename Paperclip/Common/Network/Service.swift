@@ -1,9 +1,7 @@
 import Foundation
 
+class Service {}
+
 protocol Cancellable {
     func cancel()
-}
-
-class Service {
-    //
 }

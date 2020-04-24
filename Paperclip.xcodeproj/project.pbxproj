@@ -318,11 +318,11 @@
 		8081E60A2449F8A700FD9126 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				80E223ED245334E200B4C8E8 /* Cache */,
 				8081E60D2449F8DA00FD9126 /* Service.swift */,
 				8081E60B2449F8B500FD9126 /* ServerService.swift */,
 				8081E629244B1DD300FD9126 /* DemoService.swift */,
 				8081E6122449FA2F00FD9126 /* NetworkManager.swift */,
-				80756D54244E78FA009BDAF7 /* WebImageView.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -482,6 +482,14 @@
 				80E223E5245332DB00B4C8E8 /* DemoListingsService.swift */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		80E223ED245334E200B4C8E8 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				80756D54244E78FA009BDAF7 /* WebImageView.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

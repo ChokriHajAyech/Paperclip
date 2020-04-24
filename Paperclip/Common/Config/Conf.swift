@@ -1,4 +1,5 @@
 struct Conf {
+    
 	static let brand = "Paperclip"
 	static let version = "1.0"
 	static let build = "1"

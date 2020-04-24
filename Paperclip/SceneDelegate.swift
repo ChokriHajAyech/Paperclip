@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Paperclip
-//
-//  Created by Mobiapps on 17/04/2020.
-//  Copyright © 2020 AYECH. All rights reserved.
-//
 
 import UIKit
 
