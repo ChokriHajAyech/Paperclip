@@ -25,7 +25,7 @@ enum TimelineModels {
             var listProduct: [Product]
         }
         struct ViewModel {
-            struct Listing {
+            struct Listing: listingProtocol {
                 let listingId: Int?
                 var listingTitle: String?
                 var listingPrice: String?
@@ -42,7 +42,6 @@ enum TimelineModels {
     }
     
     enum FetchFromFiltredCategory {
-        
         struct Request {
             var categoryName: String
         }

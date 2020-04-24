@@ -2639,7 +2639,8 @@
          "thumb":"https://raw.githubusercontent.com/leboncoin/paperclip/master/ad-thumb/5877f940762daca3548cb19d89324098fb116356.jpg"
       },
       "creation_date":"2019-11-06T11:22:35+0000",
-      "is_urgent":true
+      "is_urgent":true,
+      "siret":"437 902 999"
    },
    {
       "id":1702202101,

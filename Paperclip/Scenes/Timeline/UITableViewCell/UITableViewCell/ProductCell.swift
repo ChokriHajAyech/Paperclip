@@ -1,11 +1,14 @@
 
 import UIKit
+import Foundation
 
 class ProductCell: UITableViewCell {
     
     // MARK: UI Properties
     
-    private let productTitleLabel : UILabel = {
+     static let cellId = "ListingCell"
+    
+     let productTitleLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.font = UIFont.boldSystemFont(ofSize: 16)
@@ -15,7 +18,7 @@ class ProductCell: UITableViewCell {
         return lbl
     }()
     
-    private let productPriceLabel : UILabel = {
+     let productPriceLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.font = UIFont.systemFont(ofSize: 16)
@@ -23,7 +26,7 @@ class ProductCell: UITableViewCell {
         return lbl
     }()
     
-    private let productImage : WebImageView = {
+     let productImage : WebImageView = {
         let imgView = WebImageView(image: #imageLiteral(resourceName: "default_thumb"))
         imgView.backgroundColor = .lightGray
         imgView.backgroundColor?.withAlphaComponent(0.2)
@@ -32,7 +35,7 @@ class ProductCell: UITableViewCell {
         return imgView
     }()
     
-    private let productIndicatorStatus : UIImageView = {
+     let productIndicatorStatus : UIImageView = {
         let imgView = UIImageView(image: #imageLiteral(resourceName: "indicator"))
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
@@ -65,7 +68,7 @@ class ProductCell: UITableViewCell {
         addSubview(productPriceLabel)
         addSubview(productIndicatorStatus)
         
-        productImage.anchor(top: layoutMarginsGuide.topAnchor, left: layoutMarginsGuide.leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 10, paddingLeft: 0, paddingBottom: 10, paddingRight: 0, width: 90, height: 90, enableInsets: false)
+        productImage.anchor(top: layoutMarginsGuide.topAnchor, left: layoutMarginsGuide.leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 10, paddingLeft: 0, paddingBottom: 10, paddingRight: 0, width: 80, height: 80, enableInsets: false)
         
         
         productTitleLabel.anchor(top: layoutMarginsGuide.topAnchor, left: productImage.layoutMarginsGuide.rightAnchor, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
@@ -73,10 +76,10 @@ class ProductCell: UITableViewCell {
         productPriceLabel.anchor(top: productTitleLabel.layoutMarginsGuide.bottomAnchor, left:
             productImage.layoutMarginsGuide.rightAnchor, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 10, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0 , height: 0, enableInsets: false)
         
-        productIndicatorStatus.anchor(top: topAnchor, left: nil, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
+        productIndicatorStatus.anchor(top: topAnchor, left: nil, bottom: nil, right: layoutMarginsGuide.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
     }
     
-    func bind(_ listing: TimelineModels.FetchFromListProducts.ViewModel.Listing?) {
+    func bind(_ listing: listingProtocol?) {
         
         if let listingTitle = listing?.listingTitle {
             productTitleLabel.text = listingTitle

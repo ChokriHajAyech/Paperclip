@@ -9,13 +9,13 @@ enum DetailsModels {
             var product: Product?
         }
         struct ViewModel {
-            struct Listing {
+            struct Listing: listingDetailsProtocol {
                 var listingTitle: String?
                 var listingPrice: String?
                 var listingDescription: String?
                 var listingSiret: String?
-                var listingThumbUrlImage: URL?
-                var listingSmallUrlImage: URL?
+                var thumbUrl: URL?
+                var smallUrl: URL?
                 var listingCreationDate: String?
                 var isUrgent: Bool?
             }

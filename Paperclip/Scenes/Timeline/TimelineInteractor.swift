@@ -37,8 +37,7 @@ class TimelineInteractor: TimelineBusinessLogic, TimeLineDataStore {
                         let stringDate: String = value.creationDate!
                         let date = dateFormatter.date(from: stringDate)
                         
-
-                        let listing = Listing(categoryId: value.categoryId, listingId: value.id, listingTitle: value.title, listingPrice: value.price, isUrgent: value.isUrgent, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
+                        let listing = Listing(categoryId: value.categoryId, listingId: value.id, listingTitle: value.title,listingDescription:value.description,listingSiret: value.siret,  listingPrice: value.price, isUrgent: value.isUrgent, listingSmallUrlImage: value.smallUrlImage, listingThumbUrlImage: value.thumbUrlImage, listingCreationDate: date)
                         
                         
                         

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		806A02BC24526276003F46DC /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A02BB24526276003F46DC /* Protocol.swift */; };
 		80756D55244E78FA009BDAF7 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D54244E78FA009BDAF7 /* WebImageView.swift */; };
 		80756D58244F6E8F009BDAF7 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D57244F6E8F009BDAF7 /* NavigationController.swift */; };
-		80756D5B2450BCE1009BDAF7 /* TimeLineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */; };
 		807A3AD6244C76E800C11BED /* TimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3AD5244C76E800C11BED /* TimelinePresenter.swift */; };
 		807A3AD9244C771800C11BED /* TimelineWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3AD8244C771800C11BED /* TimelineWorker.swift */; };
 		807A3ADB244C773200C11BED /* TimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A3ADA244C773200C11BED /* TimelineRouter.swift */; };
@@ -49,6 +49,8 @@
 		8081E665244B297700FD9126 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 8081E663244B297700FD9126 /* categories.json */; };
 		8081E667244B32A400FD9126 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E666244B32A400FD9126 /* ServiceFactory.swift */; };
 		80825A392451DD8F00845C9C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80825A382451DD8F00845C9C /* Models.swift */; };
+		80C3D8162452599300EE3196 /* OtherDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C3D8152452599300EE3196 /* OtherDetailsCell.swift */; };
+		80E223C1245263BC00B4C8E8 /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223C0245263BC00B4C8E8 /* CategoryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +71,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		806A02BB24526276003F46DC /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		80756D54244E78FA009BDAF7 /* WebImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		80756D57244F6E8F009BDAF7 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLineHeaderView.swift; path = Paperclip/Common/Navigation/TimeLineHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		807A3AD5244C76E800C11BED /* TimelinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinePresenter.swift; sourceTree = "<group>"; };
 		807A3AD8244C771800C11BED /* TimelineWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineWorker.swift; sourceTree = "<group>"; };
 		807A3ADA244C773200C11BED /* TimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRouter.swift; sourceTree = "<group>"; };
@@ -117,6 +119,8 @@
 		8081E663244B297700FD9126 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
 		8081E666244B32A400FD9126 /* ServiceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		80825A382451DD8F00845C9C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		80C3D8152452599300EE3196 /* OtherDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherDetailsCell.swift; sourceTree = "<group>"; };
+		80E223C0245263BC00B4C8E8 /* CategoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryHeaderView.swift; path = Paperclip/Common/Navigation/CategoryHeaderView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		806A02BA24526263003F46DC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				806A02BB24526276003F46DC /* Protocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		80756D56244F6E72009BDAF7 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,18 +167,17 @@
 		80756D592450BCAC009BDAF7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				80756D5A2450BCE1009BDAF7 /* TimeLineHeaderView.swift */,
+				80E223C0245263BC00B4C8E8 /* CategoryHeaderView.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
 		};
-		80756D5C2450C772009BDAF7 /* UI */ = {
+		80756D5C2450C772009BDAF7 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				80756D592450BCAC009BDAF7 /* Header */,
 				807A3AF0244C7FEC00C11BED /* UITableViewCell */,
 			);
-			path = UI;
+			path = UITableViewCell;
 			sourceTree = "<group>";
 		};
 		807A3AD3244C76D100C11BED /* Scenes */ = {
@@ -181,7 +192,7 @@
 		807A3AD4244C76DE00C11BED /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				80756D5C2450C772009BDAF7 /* UI */,
+				80756D5C2450C772009BDAF7 /* UITableViewCell */,
 				807A3AD5244C76E800C11BED /* TimelinePresenter.swift */,
 				807A3AD8244C771800C11BED /* TimelineWorker.swift */,
 				807A3ADA244C773200C11BED /* TimelineRouter.swift */,
@@ -195,6 +206,7 @@
 		807A3AD7244C76ED00C11BED /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				80C3D812245253BB00EE3196 /* UITableViewCell */,
 				807A3AE2244C779600C11BED /* DetailsPresenter.swift */,
 				807A3AE4244C77A500C11BED /* DetailsWorker.swift */,
 				807A3AE6244C77B600C11BED /* DetailsRouter.swift */,
@@ -286,13 +298,15 @@
 			isa = PBXGroup;
 			children = (
 				8081E60F2449F8EE00FD9126 /* Config */,
+				8081E6192449FBFA00FD9126 /* Logging */,
+				80756D592450BCAC009BDAF7 /* Header */,
 				80756D56244F6E72009BDAF7 /* Navigation */,
+				806A02BA24526263003F46DC /* Protocol */,
 				807A3AF1244CD80D00C11BED /* Extension */,
 				8081E61C244B1C5B00FD9126 /* Worker */,
-				8081E6022449EA8600FD9126 /* Models */,
-				8081E6192449FBFA00FD9126 /* Logging */,
-				8081E6142449FA8500FD9126 /* Error */,
 				8081E60A2449F8A700FD9126 /* Network */,
+				8081E6022449EA8600FD9126 /* Models */,
+				8081E6142449FA8500FD9126 /* Error */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -439,6 +453,14 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
+		80C3D812245253BB00EE3196 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				80C3D8152452599300EE3196 /* OtherDetailsCell.swift */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -580,6 +602,7 @@
 				807A3AE9244C77C300C11BED /* DetailsModels.swift in Sources */,
 				8081E65A244B25F700FD9126 /* DemoCategoriesService.swift in Sources */,
 				807A3AD6244C76E800C11BED /* TimelinePresenter.swift in Sources */,
+				806A02BC24526276003F46DC /* Protocol.swift in Sources */,
 				8081E653244B256A00FD9126 /* DemoListingsService.swift in Sources */,
 				8081E65C244B260E00FD9126 /* ServerCategoriesService.swift in Sources */,
 				807A3ADF244C775800C11BED /* TimelineViewController.swift in Sources */,
@@ -595,11 +618,12 @@
 				8081E5CE2449E92600FD9126 /* AppDelegate.swift in Sources */,
 				807A3AED244C77E700C11BED /* DetailsInteractor.swift in Sources */,
 				807A3AE3244C779600C11BED /* DetailsPresenter.swift in Sources */,
+				80E223C1245263BC00B4C8E8 /* CategoryHeaderView.swift in Sources */,
 				807A3AE5244C77A500C11BED /* DetailsWorker.swift in Sources */,
-				80756D5B2450BCE1009BDAF7 /* TimeLineHeaderView.swift in Sources */,
 				8081E60C2449F8B500FD9126 /* ServerService.swift in Sources */,
 				807A3AEB244C77D100C11BED /* DetailsViewController.swift in Sources */,
 				8081E64F244B250400FD9126 /* ListingsService.swift in Sources */,
+				80C3D8162452599300EE3196 /* OtherDetailsCell.swift in Sources */,
 				8081E6182449FBCE00FD9126 /* PaperclipError.swift in Sources */,
 				8081E6092449F6ED00FD9126 /* Listing.swift in Sources */,
 				807A3AF9244DDCDA00C11BED /* ProductCell.swift in Sources */,

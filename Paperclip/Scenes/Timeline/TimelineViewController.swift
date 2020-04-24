@@ -10,8 +10,7 @@ protocol TimelineDisplayLogic: class {
 class TimelineViewController: UITableViewController {
     
     // MARK: - Controls
-    
-    private let cellId = "ListingCell"
+
     private var interactor: TimelineBusinessLogic?
     private var router: (NSObjectProtocol & TimelineRoutingLogic & TimelineDataPassing)?
     private var resultSearchController = UISearchController()
@@ -92,7 +91,7 @@ class TimelineViewController: UITableViewController {
     // MARK: - Configure tableView
     
     private func configureTableView() {
-        tableView.register(ProductCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.cellId)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 300
         tableView.estimatedSectionHeaderHeight = 10
@@ -101,7 +100,7 @@ class TimelineViewController: UITableViewController {
         tableView.sectionFooterHeight = 0.0
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
-        tableView.register(TimeLineHeaderView.self,
+        tableView.register(CategoryHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: "sectionHeader")
     }
     
@@ -141,7 +140,7 @@ class TimelineViewController: UITableViewController {
     // MARK: - UITableView DataSource
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProductCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.cellId, for: indexPath) as! ProductCell
         var listing: TimelineModels.FetchFromListProducts.ViewModel.Listing?
         
         if isEnabledFiltre {
@@ -173,7 +172,7 @@ class TimelineViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-            "sectionHeader") as? TimeLineHeaderView
+            "sectionHeader") as? CategoryHeaderView
         var categoryName = viewModel?.listProduct[section].categoryName
         if isEnabledFiltre {
             categoryName = viewModelFiltred?.listFiltredCategories[section].categoryName

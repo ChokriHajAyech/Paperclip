@@ -1,7 +1,7 @@
 
 import UIKit
 
-class TimeLineHeaderView: UITableViewHeaderFooterView {
+class CategoryHeaderView: UITableViewHeaderFooterView {
     
     let title : UILabel = {
         let lbl = UILabel()
