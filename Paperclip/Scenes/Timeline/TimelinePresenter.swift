@@ -20,7 +20,7 @@ class TimelinePresenter: TimelinePresentationLogic {
             
             let listing = product.listing
             let categoryName = product.categoryName
-            let listingVM = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+            let listingVM = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: ((listing?.listingPrice?.description)! + " €"), isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
             let product =  TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVM)
             displayedProduct.append(product)
         }
@@ -44,7 +44,7 @@ class TimelinePresenter: TimelinePresentationLogic {
             products.forEach { (product) in
                 let listing = product.listing
                 let categoryName = product.categoryName
-                let listingVm = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: listing?.listingPrice?.description, isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
+                let listingVm = TimelineModels.FetchFromListProducts.ViewModel.Listing(listingId: listing?.listingId, listingTitle: listing?.listingTitle, listingPrice: ((listing?.listingPrice?.description)! + " €"), isUrgent: listing?.isUrgent, thumbUrl: URL(string: listing?.listingThumbUrlImage ?? ""), smallUrl: URL(string: listing?.listingSmallUrlImage ?? ""))
                 
                 let product = TimelineModels.FetchFromListProducts.ViewModel.Product(categoryName: categoryName, listing: listingVm)
                 displayedProduct.append(product)

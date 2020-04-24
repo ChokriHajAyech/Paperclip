@@ -11,10 +11,10 @@ class TimelineViewController: UITableViewController {
     
     // MARK: - Controls
     
-    private var interactor: TimelineBusinessLogic?
-    private var router: (NSObjectProtocol & TimelineRoutingLogic & TimelineDataPassing)?
-    private var resultSearchController = UISearchController()
-    private var isEnabledFiltre = false
+    var interactor: TimelineBusinessLogic?
+    var router: (NSObjectProtocol & TimelineRoutingLogic & TimelineDataPassing)?
+    var resultSearchController = UISearchController()
+    var isEnabledFiltre = false
     private var indicator = UIActivityIndicatorView()
     
     private var viewModel: TimelineModels.FetchFromListProducts.ViewModel?  {
@@ -34,10 +34,9 @@ class TimelineViewController: UITableViewController {
     
     // MARK: - View Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setup()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         fetchFromProducts()
     }
     
@@ -62,6 +61,7 @@ class TimelineViewController: UITableViewController {
     override init(style: UITableView.Style) {
         super.init(style: style)
         
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -198,6 +198,7 @@ class TimelineViewController: UITableViewController {
 extension TimelineViewController: TimelineDisplayLogic {
     
     func displayFiltredCategory(with viewModel: TimelineModels.FetchFromFiltredCategory.ViewModel) {
+        isEnabledFiltre = true
         viewModelFiltred = viewModel
     }
     
@@ -237,7 +238,6 @@ extension TimelineViewController: UISearchResultsUpdating {
             self.loadUI()
             return
         }
-        isEnabledFiltre = true
         searchData(for: text)
     }
 }

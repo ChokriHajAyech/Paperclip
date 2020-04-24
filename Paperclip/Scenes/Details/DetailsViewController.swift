@@ -29,11 +29,13 @@ class DetailsViewController: UIViewController {
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
+    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         displayProduct()
         configureNavigationBar()
     }
-    
-    override func viewWillAppear(_ animated: Bool) { }
     
     override func loadView() {
         setupView()

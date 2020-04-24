@@ -88,7 +88,7 @@ class ProductCell: UITableViewCell {
         }
         
         if let listingPrice = listing?.listingPrice {
-            productPriceLabel.text = listingPrice + " €"
+            productPriceLabel.text = listingPrice
         } else {
             productPriceLabel.text = ""
         }
