@@ -24,6 +24,7 @@ class TimelineRouter: NSObject, TimelineRoutingLogic, TimelineDataPassing {
     // MARK: Passing data
     
     func passDataToDetails(source: TimeLineDataStore, destination: inout DetailsDataStore, idProduct: Int) {
+        
         destination.product = source.products?.first(where: { $0.listing?.listingId == idProduct
         })
     }

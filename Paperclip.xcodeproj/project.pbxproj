@@ -37,9 +37,6 @@
 		8081E6182449FBCE00FD9126 /* PaperclipError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E6172449FBCE00FD9126 /* PaperclipError.swift */; };
 		8081E61B2449FC0A00FD9126 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E61A2449FC0A00FD9126 /* Log.swift */; };
 		8081E62A244B1DD300FD9126 /* DemoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E629244B1DD300FD9126 /* DemoService.swift */; };
-		8081E64F244B250400FD9126 /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E64C244B250400FD9126 /* ListingsService.swift */; };
-		8081E653244B256A00FD9126 /* DemoListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E652244B256A00FD9126 /* DemoListingsService.swift */; };
-		8081E655244B257400FD9126 /* ServerListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E654244B257400FD9126 /* ServerListingsService.swift */; };
 		8081E65A244B25F700FD9126 /* DemoCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E659244B25F700FD9126 /* DemoCategoriesService.swift */; };
 		8081E65C244B260E00FD9126 /* ServerCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E65B244B260E00FD9126 /* ServerCategoriesService.swift */; };
 		8081E65E244B262000FD9126 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8081E65D244B262000FD9126 /* CategoriesService.swift */; };
@@ -56,6 +53,9 @@
 		80E223D52452E5D100B4C8E8 /* DetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223D42452E5D100B4C8E8 /* DetailsPresenterTests.swift */; };
 		80E223DD2452E5FD00B4C8E8 /* DetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223DC2452E5FD00B4C8E8 /* DetailsViewControllerTests.swift */; };
 		80E223DF2452E60900B4C8E8 /* DetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223DE2452E60900B4C8E8 /* DetailsInteractorTests.swift */; };
+		80E223E6245332DB00B4C8E8 /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223E4245332DB00B4C8E8 /* ListingsService.swift */; };
+		80E223E7245332DB00B4C8E8 /* DemoListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223E5245332DB00B4C8E8 /* DemoListingsService.swift */; };
+		80E223E9245332E200B4C8E8 /* ServerListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E223E8245332E200B4C8E8 /* ServerListingsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,9 +112,6 @@
 		8081E6172449FBCE00FD9126 /* PaperclipError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperclipError.swift; sourceTree = "<group>"; };
 		8081E61A2449FC0A00FD9126 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		8081E629244B1DD300FD9126 /* DemoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoService.swift; sourceTree = "<group>"; };
-		8081E64C244B250400FD9126 /* ListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
-		8081E652244B256A00FD9126 /* DemoListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoListingsService.swift; sourceTree = "<group>"; };
-		8081E654244B257400FD9126 /* ServerListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerListingsService.swift; sourceTree = "<group>"; };
 		8081E659244B25F700FD9126 /* DemoCategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCategoriesService.swift; sourceTree = "<group>"; };
 		8081E65B244B260E00FD9126 /* ServerCategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerCategoriesService.swift; sourceTree = "<group>"; };
 		8081E65D244B262000FD9126 /* CategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
@@ -131,6 +128,9 @@
 		80E223D42452E5D100B4C8E8 /* DetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenterTests.swift; sourceTree = "<group>"; };
 		80E223DC2452E5FD00B4C8E8 /* DetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		80E223DE2452E60900B4C8E8 /* DetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractorTests.swift; sourceTree = "<group>"; };
+		80E223E4245332DB00B4C8E8 /* ListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
+		80E223E5245332DB00B4C8E8 /* DemoListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoListingsService.swift; sourceTree = "<group>"; };
+		80E223E8245332E200B4C8E8 /* ServerListingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerListingsService.swift; path = Paperclip/Common/Worker/API/Listings/ServerListingsService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,7 +354,6 @@
 		8081E61C244B1C5B00FD9126 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
-				8081E666244B32A400FD9126 /* ServiceFactory.swift */,
 				8081E61D244B1C5B00FD9126 /* API */,
 			);
 			path = Worker;
@@ -363,37 +362,11 @@
 		8081E61D244B1C5B00FD9126 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				8081E666244B32A400FD9126 /* ServiceFactory.swift */,
+				80E223EA2453330B00B4C8E8 /* Listings */,
 				8081E656244B25A000FD9126 /* Categories */,
-				8081E620244B1D7200FD9126 /* Listings */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		8081E620244B1D7200FD9126 /* Listings */ = {
-			isa = PBXGroup;
-			children = (
-				8081E64C244B250400FD9126 /* ListingsService.swift */,
-				8081E650244B254100FD9126 /* Demo */,
-				8081E651244B255500FD9126 /* Server */,
-			);
-			name = Listings;
-			path = "../../../../../../../Documents/Edf project/Projects-V3/bee-edf_bee/Bee-iOS/Messenger/Messenger/Classes/Network/Services/Listings";
-			sourceTree = "<group>";
-		};
-		8081E650244B254100FD9126 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				8081E652244B256A00FD9126 /* DemoListingsService.swift */,
-			);
-			path = Demo;
-			sourceTree = "<group>";
-		};
-		8081E651244B255500FD9126 /* Server */ = {
-			isa = PBXGroup;
-			children = (
-				8081E654244B257400FD9126 /* ServerListingsService.swift */,
-			);
-			path = Server;
 			sourceTree = "<group>";
 		};
 		8081E656244B25A000FD9126 /* Categories */ = {
@@ -483,6 +456,32 @@
 				80E223DE2452E60900B4C8E8 /* DetailsInteractorTests.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		80E223EA2453330B00B4C8E8 /* Listings */ = {
+			isa = PBXGroup;
+			children = (
+				80E223E4245332DB00B4C8E8 /* ListingsService.swift */,
+				80E223EC2453332300B4C8E8 /* Demo */,
+				80E223EB2453331A00B4C8E8 /* Server */,
+			);
+			path = Listings;
+			sourceTree = "<group>";
+		};
+		80E223EB2453331A00B4C8E8 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				80E223E8245332E200B4C8E8 /* ServerListingsService.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		80E223EC2453332300B4C8E8 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				80E223E5245332DB00B4C8E8 /* DemoListingsService.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,7 +627,6 @@
 				8081E65A244B25F700FD9126 /* DemoCategoriesService.swift in Sources */,
 				807A3AD6244C76E800C11BED /* TimelinePresenter.swift in Sources */,
 				806A02BC24526276003F46DC /* Protocol.swift in Sources */,
-				8081E653244B256A00FD9126 /* DemoListingsService.swift in Sources */,
 				8081E65C244B260E00FD9126 /* ServerCategoriesService.swift in Sources */,
 				807A3ADF244C775800C11BED /* TimelineViewController.swift in Sources */,
 				80756D58244F6E8F009BDAF7 /* NavigationController.swift in Sources */,
@@ -640,15 +638,16 @@
 				807A3AE7244C77B600C11BED /* DetailsRouter.swift in Sources */,
 				807A3AF3244CD81F00C11BED /* Extension.swift in Sources */,
 				8081E60E2449F8DA00FD9126 /* Service.swift in Sources */,
-				8081E655244B257400FD9126 /* ServerListingsService.swift in Sources */,
 				8081E5CE2449E92600FD9126 /* AppDelegate.swift in Sources */,
 				807A3AED244C77E700C11BED /* DetailsInteractor.swift in Sources */,
 				807A3AE3244C779600C11BED /* DetailsPresenter.swift in Sources */,
 				80E223C1245263BC00B4C8E8 /* CategoryHeaderView.swift in Sources */,
+				80E223E9245332E200B4C8E8 /* ServerListingsService.swift in Sources */,
 				807A3AE5244C77A500C11BED /* DetailsWorker.swift in Sources */,
+				80E223E6245332DB00B4C8E8 /* ListingsService.swift in Sources */,
 				8081E60C2449F8B500FD9126 /* ServerService.swift in Sources */,
 				807A3AEB244C77D100C11BED /* DetailsViewController.swift in Sources */,
-				8081E64F244B250400FD9126 /* ListingsService.swift in Sources */,
+				80E223E7245332DB00B4C8E8 /* DemoListingsService.swift in Sources */,
 				80C3D8162452599300EE3196 /* OtherDetailsCell.swift in Sources */,
 				8081E6182449FBCE00FD9126 /* PaperclipError.swift in Sources */,
 				8081E6092449F6ED00FD9126 /* Listing.swift in Sources */,
