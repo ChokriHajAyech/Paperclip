@@ -10,7 +10,7 @@ protocol TimelineDisplayLogic: class {
 class TimelineViewController: UITableViewController {
     
     // MARK: - Controls
-
+    
     private var interactor: TimelineBusinessLogic?
     private var router: (NSObjectProtocol & TimelineRoutingLogic & TimelineDataPassing)?
     private var resultSearchController = UISearchController()

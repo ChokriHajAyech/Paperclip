@@ -125,14 +125,7 @@ extension DetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  2
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-            "sectionHeader") as? CategoryHeaderView
-        let categoryName = viewModel?.product?.categoryName
-        view?.title.text = categoryName
-        return view
-    }
+  
 }
 
 extension DetailsViewController: UITableViewDelegate {
@@ -140,6 +133,14 @@ extension DetailsViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+      func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+          let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+              "sectionHeader") as? CategoryHeaderView
+          let categoryName = viewModel?.product?.categoryName
+          view?.title.text = categoryName
+          return view
+      }
 }
 
 // MARK: - DetailsDisplayLogic

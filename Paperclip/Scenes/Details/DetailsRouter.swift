@@ -15,7 +15,7 @@ class DetailsRouter: NSObject,  DetailsRoutingLogic,  DetailsDataPassing {
     var viewController: DetailsViewController?
     
     func routeToTimeLine() {
-        
+        //
     }
     
 }
